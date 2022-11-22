@@ -1,36 +1,20 @@
 ---
-title: "projet volant"
+title: "volant"
 format: html
 editor: visual
 ---
 
-::: callout-important
-Pour télécharger le fichier: [regex.qmd](/assets/fichier/_regex.qmd)
-:::
-
 ## À la découverte des expressions régulières avec R (et d'autres packages au passage...)
 
-Les **expressions régulières** sont communément appelées **regex** ou
-**regexp** pour **regular expressions** en anglais. Selon Wikipédia, une
-expression régulière est "une chaîne de caractères, qui décrit, selon une
-syntaxe précise, un ensemble de chaînes de caractères possibles". Si vous
-n'avez jamais entendu parlé des regex, il se peut que cette définition ne vous
-aide pas à comprendre le concept. Nous tenterons de démystifier le tout au
-cours de ces exercices.
+Les **expressions régulières** sont communément appelées **regex** ou **regexp** pour **regular expressions** en anglais. Selon Wikipédia, une expression régulière est "une chaîne de caractères, qui décrit, selon une syntaxe précise, un ensemble de chaînes de caractères possibles". Si vous n'avez jamais entendu parlé des regex, il se peut que cette définition ne vous aide pas à comprendre le concept. Nous tenterons de démystifier le tout au cours de ces exercices.
 
-À titre de rappel, cet
-[aide-mémoire](https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/french/regex_fr.pdf)
-vous sera drôlement utile!
+À titre de rappel, cet [aide-mémoire](https://raw.githubusercontent.com/rstudio/cheatsheets/main/translations/french/regex_fr.pdf) vous sera drôlement utile!
 
-En résumé, ces expressions permettent de décrire des motifs (patterns) à l'aide
-de formules "*relativement simples*" pour trouver, valider, extraire ou
-modifier du texte ou des nombres.
+En résumé, ces expressions permettent de décrire des motifs (patterns) à l'aide de formules "*relativement simples*" pour trouver, valider, extraire ou modifier du texte ou des nombres.
 
 ## Mission d'aujourd'hui:
 
-Récolter le plus d'information possible qui se trouve dans les tableaux de la
-page suivante:
-<https://tc.canada.ca/fr/aviation/exploitation-aeroports-aerodromes/liste-aeroports-appartenant-transports-canada>.
+Récolter le plus d'information possible qui se trouve dans les tableaux de la page suivante: <https://tc.canada.ca/fr/aviation/exploitation-aeroports-aerodromes/liste-aeroports-appartenant-transports-canada>.
 
 ```{r import}
 library(tidyverse)
@@ -56,8 +40,7 @@ base_tables <- html_table(x = base_html_table)
 names(base_tables[[3]])
 ```
 
-⚠️ Erreur! Une colonne n'est pas nommée de façon identique, donc ne fonctionne
-pas... Corrigeons la situation
+⚠️ Erreur! Une colonne n'est pas nommée de façon identique, donc ne fonctionne pas... Corrigeons la situation
 
 ```{r}
 
@@ -162,11 +145,10 @@ x <- x %>% mutate(type_nouveau_case = case_when(type == 1 ~ "Petits aéroports",
 
 ```
 
-## Il ne reste plus qu'à extraire l'information qui se trouve dans `table$exploited_by` 
+## Il ne reste plus qu'à extraire l'information qui se trouve dans `table$exploited_by`
 
 ```{r}
 cat(table$exploited_by) 
 
 
 ```
-
